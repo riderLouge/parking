@@ -10,7 +10,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base';
 import Index from './screens/Index';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Login from './screens/Login';
 
 
 
@@ -25,6 +25,7 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Index" component={Index} />
       </Stack.Navigator>
   );
