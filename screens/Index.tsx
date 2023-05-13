@@ -24,6 +24,16 @@ const Index = ({route}) => {
     const [slot8, setSlot8] = React.useState("");
     const [slot9, setSlot9] = React.useState("");
     const [slot10, setSlot10] = React.useState("");
+    const [ckrA1,setClrA1] = React.useState("green");
+    const [ckrA2,setClrA2] = React.useState("green");
+    const [ckrA3,setClrA3] = React.useState("green");
+    const [ckrA4,setClrA4] = React.useState("green");
+    const [ckrA5,setClrA5] = React.useState("green");
+    const [ckrB1,setClrB1] = React.useState("green");
+    const [ckrB2,setClrB2] = React.useState("green");
+    const [ckrB3,setClrB3] = React.useState("green");
+    const [ckrB4,setClrB4] = React.useState("green");
+    const [ckrB5,setClrB5] = React.useState("green");
     const [count,SetCount]=React.useState(0);
     const Navigation = useNavigation();
     const db = firebase.firestore();
@@ -52,6 +62,36 @@ const Index = ({route}) => {
             setSlot10(doc.data().Slot10)
         
         }
+        if(slot1 === ""){
+            setClrA1('green')
+        }
+        if(slot2 === ""){
+            setClrA2('green')
+        }
+        if(slot3 === ""){
+            setClrA3('green')
+        }
+        if(slot4 === ""){
+            setClrA4('green')
+        }
+        if(slot5 === ""){
+            setClrA5('green')
+        }
+        if(slot6 === ""){
+            setClrB1('green')
+        }
+        if(slot7 === ""){
+            setClrB2('green')
+        }
+        if(slot8 === ""){
+            setClrB3('green')
+        }
+        if(slot9 === ""){
+            setClrB4('green')
+        }
+        if(slot10 === ""){
+            setClrB5('green')
+        }
     }
 
   
@@ -77,6 +117,36 @@ const Index = ({route}) => {
                   'Post published!',
                   'Your post has been published Successfully!',
                 );
+                if(slot1 !== ""){
+                    setClrA1('red')
+                }
+                if(slot2 !== ""){
+                    setClrA2('red')
+                }
+                if(slot3 !== ""){
+                    setClrA3('red')
+                }
+                if(slot4 !== ""){
+                    setClrA4('red')
+                }
+                if(slot5 !== ""){
+                    setClrA5('red')
+                }
+                if(slot6 !== ""){
+                    setClrB1('red')
+                }
+                if(slot7 !== ""){
+                    setClrB2('red')
+                }
+                if(slot8 !== ""){
+                    setClrB3('red')
+                }
+                if(slot9 !== ""){
+                    setClrB4('red')
+                }
+                if(slot10 !== ""){
+                    setClrB5('red')
+                }
             })
             .catch((error) => {
                 console.log('Something went wrong with added post to firestore.', error);
@@ -117,6 +187,20 @@ const Index = ({route}) => {
                                       marginTop:20,
                                       padding:10,
                                       color:'black'}}>The above represents the pattern how the parking lot is. Using the key words provided select your parking slot. Example slot No : ( A1 , B1 , etc)</Text>
+                        <View style={{flex:1, position:'absolute', paddingBottom:139, flexDirection:'row', width:(width/2.25)}}>
+                            <View style={{flex:1, height:45, backgroundColor: ckrA1, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrA2, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrA3, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrA4, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrA5, margin:2}}></View>
+                        </View>
+                        <View style={{flex:1, position:'absolute', paddingBottom:45, flexDirection:'row', width:(width/2.25)}}>
+                            <View style={{flex:1, height:45, backgroundColor: ckrB1, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrB2, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrB3, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrB4, margin:2}}></View>
+                            <View style={{flex:1, height:45, backgroundColor: ckrB5, margin:2}}></View>
+                        </View>
                     </View>
                     <View style={{width:(width-40), backgroundColor:'#5192f5', marginTop:50, borderRadius:10}}>
                         <View style={{alignItems:'center', marginTop:10, marginRight:35, height:40}}>
@@ -129,7 +213,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot1}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -148,7 +232,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot2}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -167,7 +251,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot3}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -186,7 +270,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot4}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -205,7 +289,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot5}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -227,7 +311,7 @@ const Index = ({route}) => {
                                         defaultValue={slot6}
                                         onPressIn={()=>{
                                             SetCount(1)}}
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         onChangeText={(newSlot6) => setSlot6(newSlot6)}>
                                 </TextInput> 
                                 <Icon name="exit" size={width/15} 
@@ -243,7 +327,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot7}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -263,7 +347,7 @@ const Index = ({route}) => {
                                 <TextInput style={styles.textInput2}
                                         defaultValue={slot8}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         onPressIn={()=>{
                                             SetCount(1)}}
                                         onChangeText={(newSlot8) => setSlot8(newSlot8)}>
@@ -281,7 +365,7 @@ const Index = ({route}) => {
                             <View style={{flexDirection:'row'}}>
                                 <TextInput style={styles.textInput2}
                                         placeholder="Enter Vehicle Number"
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         defaultValue={slot9}
                                         onPressIn={()=>{
                                             SetCount(1)}}
@@ -303,7 +387,7 @@ const Index = ({route}) => {
                                         defaultValue={slot10}
                                         onPressIn={()=>{
                                             SetCount(1)}}
-                                        placeholderTextColor={'red'}
+                                        placeholderTextColor={'green'}
                                         onChangeText={(newSlot10) => setSlot10(newSlot10)}>
                                 </TextInput> 
                                 <Icon name="exit" size={width/15} 
@@ -346,7 +430,7 @@ const styles = StyleSheet.create({
         fontSize:20,
     },
     textInput2: {
-        color: "green",
+        color: "red",
         width:(width/2),
         backgroundColor:'white',
         borderRadius:10,
